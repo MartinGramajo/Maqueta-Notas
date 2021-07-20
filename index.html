@@ -27,24 +27,22 @@
         </div>
     </div>
         <!-- formulario Modal  -->
-        <form>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                <div class="modal-content">
+            <div class="modal-content">
+                <form id="formulario">
                     <div class="row">
                         <div class="col p-3">
-                            <label for="formGroupExampleInput" class="form-label"> <i class="fas fa-address-book"></i>Titulo</label>
-                            <input type="text" class="form-control" required id="">
-                          </div>
+                            <label for="inputTitulo" class="form-label">Titulo</label>
+                            <input type="text" class="form-control" required id="inputTitulo">
+                        </div>
                     <div class="modal-body">
                         <div class="form-floating">
-                            <textarea class="form-control" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="floatingTextarea2"></label>
+                            <input type="text" class="form-control" required id="inputComentario">
                             </div>
                             <br>
-                            <div class="col">
-                                <label for="inputCategorias">Categorias</label>
-                                <select id="inputCategorias" required>
+                            <label for="inputCategorias">Categorias</label>
+                            <select id="inputCategorias" required>
                                     <option>Recordatorio</option>
                                     <option>Meta</option>
                                     <option>Tarea</option>
@@ -54,7 +52,7 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Crear Nota</button>
+                    <button type="submit" class="btn btn-primary">Crear Nota</button>
                     </div>
                 </div>
                 </div>
