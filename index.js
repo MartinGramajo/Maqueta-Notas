@@ -26,7 +26,7 @@ formularioNotas.onsubmit = function (event) {
 function mostrarCards() {
     const cardMap = notas.map(function (card) {
         return `
-        <div class="col-6 border border-primary p-3 mb-2 bg-light text-dark m-auto w-100">
+        <div class="col-6 border border-primary p-3 mb-2 bg-dark text-white m-auto w-100">
         <h3>Titulo: ${card.titulo}</h3>
         <p class="text-break"> ${card.comentario}</p>
         <p>Categoria: ${card.categoria}</p>
