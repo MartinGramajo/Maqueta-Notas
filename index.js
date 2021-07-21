@@ -2,8 +2,8 @@ const formularioNotas = document.getElementById('formulario');
 const tituloInput = document.getElementById('inputTitulo');
 const comentarioInput = document.getElementById('inputComentario');
 const categoriaInput = document.getElementById('inputCategorias');
-
-const json = localStorage.getItem('notas')
+const notasCard = document.getElementById('cardNotas')
+const json = localStorage.getItem('notas');
 const notas = JSON.parse(json) || [];
 
 
@@ -12,7 +12,6 @@ function generarID() {
 };
 
 formularioNotas.onsubmit = function (event) {
-    event.preventDefault();
     const nota = {
         id : generarID(),
         titulo : tituloInput.value,
@@ -23,3 +22,18 @@ formularioNotas.onsubmit = function (event) {
     const json = JSON.stringify(notas);
     localStorage.setItem('notas', json);
 }
+
+function mostrarCards() {
+    const cardMap = notas.map(function (card) {
+        return `
+        <div class="col-6 border border-primary p-3 mb-2 bg-light text-dark m-auto w-100">
+        <h3>Titulo: ${card.titulo}</h3>
+        <p class="text-break"> ${card.comentario}</p>
+        <p>Categoria: ${card.categoria}</p>
+        </div>
+        `;
+    } );
+    notasCard.innerHTML = cardMap.join('')
+}
+
+mostrarCards();

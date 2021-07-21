@@ -52,13 +52,22 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Crear Nota</button>
+                    <button type="submit" class="btn btn-primary" onclick="mostrarCards()">Guardar Nota</button>
                     </div>
                 </div>
                 </div>
             </div>
         </form>
 
+
+        <!--Card notas Usuarios-->
+        <section class="container">
+            <h1 class="text-center">MIS NOTAS</h1>
+            <div class="row d-flex flex-wrap justify-content-between" id="cardNotas">
+
+            </div>
+                
+        </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./index.js"></script>
