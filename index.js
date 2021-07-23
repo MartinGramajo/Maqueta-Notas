@@ -33,8 +33,8 @@ function mostrarNotas() {
         <h3>Titulo: ${nota.titulo}</h3>
         <p class="text-break"> ${nota.comentario}</p>
         <p> Categoria: ${nota.categoria}</p>
+        <button onclick="mostrarDetalle('${nota.id}')" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetalle"> Mostrar Detalles</button> 
         <button onclick="eliminarNota('${nota.id}')" class="btn btn-danger btn-sm" >Eliminar nota</button>
-
         </div>
         `;
     } );
@@ -50,3 +50,7 @@ function eliminarNota(id) {
     notas = notasFiltradas;
     mostrarNotas();
     };
+
+function mostrarDetalle(id) {
+    const notaEncontrada = notas.find((nota) => nota.id === id);
+}
