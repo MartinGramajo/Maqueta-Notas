@@ -29,10 +29,6 @@ function mostrarNotas() {
     const notasMap = notas.map(function (nota) {
         const fecha = new Date(nota.registro);
         return `
-        <div class="col-6 border border-dark p-3 mb-2 bg-secondary font-weight-bold  text-white m-auto w-100" blockquote>
-        <h3>Titulo: ${card.titulo}</h3>
-        <p class="text-break"> ${card.comentario}</p>
-        <p>Categoria: ${card.categoria}</p>
         <div class="col-6 border border-primary p-3 mb-2 bg-dark text-white m-auto w-100">
         <h3>Titulo: ${nota.titulo}</h3>
         <p class="text-break"> ${nota.comentario}</p>
