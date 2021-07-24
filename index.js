@@ -35,8 +35,8 @@ function mostrarNotas() {
             <h3 class:"p-4"><i class="fas fa-edit m-1"></i>Titulo: ${nota.titulo}</h3>
             <p class="text-break p-5"> ${nota.comentario}</p>
             <p> Categoria: ${nota.categoria}</p>
-            <button onclick="mostrarDetalle('${nota.id}')" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetalle"> Mostrar Detalles</button> 
-            <button onclick="eliminarNota('${nota.id}')" class="btn btn-danger btn-sm" >Eliminar nota</button>
+            <button onclick="mostrarDetalle('${nota.id}')" class="btn btn-primary btn-sm p-2" data-bs-toggle="modal" data-bs-target="#modalDetalle"> Mostrar Detalles</button> 
+            <button onclick="eliminarNota('${nota.id}')" class="btn btn-danger btn-sm p-2" >Eliminar nota</button>
         </div>
         `;
     } );
