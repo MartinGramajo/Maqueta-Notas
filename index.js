@@ -11,7 +11,8 @@ function generarID() {
     return '_' + Math.random().toString(36).substr(2, 9);
 };
 
-formularioNotas.onsubmit = function () {
+formularioNotas.onsubmit = function (event) {
+    event.preventDefault();
     const nota = {
         id : generarID(),
         titulo : tituloInput.value,
@@ -26,15 +27,16 @@ formularioNotas.onsubmit = function () {
 }
 
 function mostrarNotas() {
+
     const notasMap = notas.map(function (nota) {
         const fecha = new Date(nota.registro);
         return `
-        <div class="col-6 border border-primary p-3 mb-2 bg-dark text-white m-auto w-100">
-        <h3>Titulo: ${nota.titulo}</h3>
-        <p class="text-break"> ${nota.comentario}</p>
-        <p> Categoria: ${nota.categoria}</p>
-        <button onclick="mostrarDetalle('${nota.id}')" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetalle"> Mostrar Detalles</button> 
-        <button onclick="eliminarNota('${nota.id}')" class="btn btn-danger btn-sm" >Eliminar nota</button>
+        <div class=" fondoNota col-4 border border-dark p-5 mb-2 my-3 bg-dark text-dark m-auto text-center">
+            <h3 class:"p-4"><i class="fas fa-edit m-1"></i>Titulo: ${nota.titulo}</h3>
+            <p class="text-break p-5"> ${nota.comentario}</p>
+            <p> Categoria: ${nota.categoria}</p>
+            <button onclick="mostrarDetalle('${nota.id}')" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetalle"> Mostrar Detalles</button> 
+            <button onclick="eliminarNota('${nota.id}')" class="btn btn-danger btn-sm" >Eliminar nota</button>
         </div>
         `;
     } );
