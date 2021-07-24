@@ -1,8 +1,9 @@
 body {
     background-image: url(https://img.freepik.com/foto-gratis/textura-corcho-marron-primer-plano_23-2148383576.jpg?size=626&ext=jpg);
-    font-size: 20px;
-}
+    font-family: 'Caveat', cursive;
+    font-size: 25px;
 
+}
 
 .fondoNota{
     position: sticky;
