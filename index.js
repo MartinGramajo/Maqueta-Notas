@@ -33,6 +33,7 @@ formularioNotas.onsubmit = function (event) {
     const modal =  bootstrap.Modal.getInstance(myModal);
     modal.hide();
     mostrarNotas();
+    formularioNotas.reset()
 }
 
 
