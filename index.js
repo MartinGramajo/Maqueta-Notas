@@ -27,7 +27,6 @@ formularioNotas.onsubmit = function (event) {
 }
 
 function mostrarNotas() {
-
     const notasMap = notas.map(function (nota) {
         const fecha = new Date(nota.registro);
         return `
