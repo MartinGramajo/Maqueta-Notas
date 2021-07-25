@@ -51,7 +51,7 @@
                             <label for="inputTitulo" class="form-label text-white">Titulo</label>
                             <input type="text" class="form-control fs-5 bg-secondary text-white" required id="inputTitulo" maxlength="60">
                         </div>
-                    <div class="modal-body p-4">
+                    <div  class="modal-body p-4">
                         <div class="form-floating">
                             <input type="text" class="form-control overflow-auto fs-5 bg-secondary text-white p-1"  required id="inputComentario" maxlength="600">
                             </div>
@@ -77,12 +77,12 @@
 
         <!--Card notas Usuarios-->
         <section class="container">
-            <h1 class="text-center text-white mt-3"><i class="fas fa-pencil-alt"></i>MIS NOTAS</h1>
+            <h1 class="text-center text-dark fs-1 mt-3"><i class="fas fa-pencil-alt"></i>MIS NOTAS</h1>
             <div class="row d-flex flex-wrap justify-content-between" id="cardNotas">
 
             </div>
-                
         </section>
+        
             <!-- Modal -->
     <div class="modal fade" id="modalDetalle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -91,9 +91,7 @@
             <h5 class="modal-title" id="exampleModalLabel">Datos del Usuario</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-            <p id="idDetalle">Tu Id</p>
-            <p id="registroDetalle">Fecha del registro</p>
+            <div  id="detalleNota" class="modal-body">
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
