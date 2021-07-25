@@ -2,9 +2,14 @@ const formularioNotas = document.getElementById('formulario');
 const tituloInput = document.getElementById('inputTitulo');
 const comentarioInput = document.getElementById('inputComentario');
 const categoriaInput = document.getElementById('inputCategorias');
-const notasCard = document.getElementById('cardNotas')
+const notasCard = document.getElementById('cardNotas');
+const editarFormNota = document.getElementById('FormularioEditar');
+const editarTituloNota = document.getElementById('editarTitulo');
+const editarComentarioNota = document.getElementById('editarComentario');
+const editarCategoriaNota = document.getElementById('editarCategorias');
 const json = localStorage.getItem('notas');
 let notas = JSON.parse(json) || [];
+let notaId = '';
 
 
 function generarID() {
@@ -24,7 +29,12 @@ formularioNotas.onsubmit = function (event) {
     notas.push(nota);
     const json = JSON.stringify(notas);
     localStorage.setItem('notas', json);
+    const myModal = document.getElementById('notaModal');
+    const modal =  bootstrap.Modal.getInstance(myModal);
+    modal.hide();
+    mostrarNotas();
 }
+
 
 function mostrarNotas() {
     const notasMap = notas.map(function (nota) {
@@ -36,6 +46,7 @@ function mostrarNotas() {
             <p class="text-break p-5"> ${nota.comentario}</p>
             <p> Categoria: ${nota.categoria}</p>
             <button onclick="mostrarDetalle('${nota.id}')" class="btn btn-primary btn-sm p-2" data-bs-toggle="modal" data-bs-target="#modalDetalle"> Mostrar Detalles</button> 
+            <button onclick="cargarModalEditar('${nota.id}')" type="button" class="btn btn-success btn-sm p-2" data-bs-toggle="modal" data-bs-target="#modalEditar"> Editar </button>
             <button onclick="eliminarNota('${nota.id}')" class="btn btn-danger btn-sm p-2" >Eliminar nota</button>
         </div>
         `;
@@ -62,4 +73,35 @@ function mostrarDetalle(id) {
         <p> Fecha del registro: ${fecha.toLocaleString()}</p>
     `;
     NotaDetalle.innerHTML = detallesNota;
+}
+
+function cargarModalEditar(id) {
+    const notaEncontrada = notas.find((nota) => nota.id === id);
+    editarTituloNota.value = notaEncontrada.titulo;
+    editarComentarioNota.value = notaEncontrada.comentario;
+    editarCategoriaNota.value = notaEncontrada.categoria;
+    notaId = notaEncontrada.id;
+}
+
+editarFormNota.onsubmit = function editarUsuario(event) {
+    event.preventDefault();
+    const notasModificadas = notas.map((nota) => {
+        if (nota.id === notaId){
+            return {
+                ...nota,
+                titulo: editarTituloNota.value, 
+                comentario: editarComentarioNota.value,
+                categoria: editarCategoriaNota.value,
+            };
+        }
+        return nota;
+    });
+
+    const json = JSON.stringify(notasModificadas); 
+    localStorage.setItem('notas', json); 
+    notas = notasModificadas;
+    mostrarNotas();
+    const myModal = document.getElementById('modalEditar');
+    const modal =  bootstrap.Modal.getInstance(myModal);
+    modal.hide();
 }
