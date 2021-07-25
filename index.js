@@ -56,4 +56,11 @@ function eliminarNota(id) {
 
 function mostrarDetalle(id) {
     const notaEncontrada = notas.find((nota) => nota.id === id);
+    const NotaDetalle = document.getElementById('detalleNota');
+    const fecha = new Date(notaEncontrada.registro);
+    const detallesNota = `
+        <p> Id: ${notaEncontrada.id}</p>
+        <p> Fecha del registro: ${fecha.toLocaleString()}</p>
+    `;
+    NotaDetalle.innerHTML = detallesNota;
 }
