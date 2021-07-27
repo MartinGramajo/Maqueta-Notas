@@ -7,6 +7,7 @@ const editarFormNota = document.getElementById('FormularioEditar');
 const editarTituloNota = document.getElementById('editarTitulo');
 const editarComentarioNota = document.getElementById('editarComentario');
 const editarCategoriaNota = document.getElementById('editarCategorias');
+const busquedaForm = document.getElementById('formBusqueda');
 const json = localStorage.getItem('notas');
 let notas = JSON.parse(json) || [];
 let notaId = '';
@@ -106,3 +107,28 @@ editarFormNota.onsubmit = function editarUsuario(event) {
     const modal =  bootstrap.Modal.getInstance(myModal);
     modal.hide();
 }
+
+const submitBusqueda = (e) => {
+    e.preventDefault();
+    const notasLocal = JSON.parse(localStorage.getItem('notas')) || [];
+    const busquedaInput = document.getElementById('busqueda');
+    const termino = busquedaInput.value.toLowerCase();
+    const notasFiltradas = notasLocal.filter((nota) =>
+    {
+        const tituloEnMinuscula = nota.titulo.toLowerCase();
+        return tituloEnMinuscula.includes(termino);
+    })
+    notas = notasFiltradas;
+    mostrarNotas();
+}
+
+const limpiarFiltro = () => {
+    notas = JSON.parse(localStorage.getItem('notas')) || [];
+    busquedaForm.reset();
+    mostrarNotas();
+}
+
+
+
+mostrarNotas();
+busquedaForm.onsubmit = submitBusqueda;
