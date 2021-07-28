@@ -108,6 +108,7 @@ editarFormNota.onsubmit = function editarUsuario(event) {
     modal.hide();
 }
 
+// function busqueda de notas
 const submitBusqueda = (e) => {
     e.preventDefault();
     const notasLocal = JSON.parse(localStorage.getItem('notas')) || [];
@@ -120,12 +121,20 @@ const submitBusqueda = (e) => {
     })
     notas = notasFiltradas;
     mostrarNotas();
+    const alerta = document.getElementById('alertaBusqueda');
+    if (notasFiltradas.length === 0) {
+        alerta.classList.remove('d-none');
+    } else{
+        alerta.classList.add('d-none');
+    }
 }
 
 const limpiarFiltro = () => {
     notas = JSON.parse(localStorage.getItem('notas')) || [];
     busquedaForm.reset();
     mostrarNotas();
+    const alerta = document.getElementById('alertaBusqueda');
+    alerta.classList.add('d-none');
 }
 
 
