@@ -7,6 +7,7 @@ const editarFormNota = document.getElementById('FormularioEditar');
 const editarTituloNota = document.getElementById('editarTitulo');
 const editarComentarioNota = document.getElementById('editarComentario');
 const editarCategoriaNota = document.getElementById('editarCategorias');
+const busquedaForm = document.getElementById('formBusqueda');
 const json = localStorage.getItem('notas');
 let notas = JSON.parse(json) || [];
 let notaId = '';
@@ -36,12 +37,12 @@ formularioNotas.onsubmit = function (event) {
     formularioNotas.reset()
 }
 
-
+//funcion para mostrar las notas en la pantalla. 
 function mostrarNotas() {
     const notasMap = notas.map(function (nota) {
         const fecha = new Date(nota.registro);
         return `
-        <div class=" fondoNota col-md-4 border border-dark p-4 mb-2 my-3 bg-dark text-dark m-auto text-center">
+        <div class="fondoNota col-md-4 border-1 p-4 mb-2 my-3 bg-dark text-dark m-auto text-center">
             <img class="pincho m-auto" src="./img/pincho.png" alt="">
             <h3 class:"p-4"><i class="fas fa-edit m-1"></i>Titulo: ${nota.titulo}</h3>
             <p class="text-break p-5"> ${nota.comentario}</p>
@@ -57,7 +58,13 @@ function mostrarNotas() {
 
 mostrarNotas();
 
+//Funcion para eliminar las nota
+
 function eliminarNota(id) {
+    const confirmar = confirm('Confirme para eliminar la nota seleccionada.');
+    if (!confirmar) {
+        return;
+    }
     const notasFiltradas = notas.filter((nota) => nota.id !== id);
     const json = JSON.stringify(notasFiltradas); 
     localStorage.setItem('notas', json); 
@@ -65,6 +72,7 @@ function eliminarNota(id) {
     mostrarNotas();
     };
 
+//Funcion para mostrar el detalle de cada nota (id y fecha)
 function mostrarDetalle(id) {
     const notaEncontrada = notas.find((nota) => nota.id === id);
     const NotaDetalle = document.getElementById('detalleNota');
@@ -76,6 +84,7 @@ function mostrarDetalle(id) {
     NotaDetalle.innerHTML = detallesNota;
 }
 
+// funcion para editar la nota
 function cargarModalEditar(id) {
     const notaEncontrada = notas.find((nota) => nota.id === id);
     editarTituloNota.value = notaEncontrada.titulo;
@@ -106,3 +115,38 @@ editarFormNota.onsubmit = function editarUsuario(event) {
     const modal =  bootstrap.Modal.getInstance(myModal);
     modal.hide();
 }
+
+// function busqueda de notas
+const submitBusqueda = (e) => {
+    e.preventDefault();
+    const notasLocal = JSON.parse(localStorage.getItem('notas')) || [];
+    const busquedaInput = document.getElementById('busqueda');
+    const termino = busquedaInput.value.toLowerCase();
+    const notasFiltradas = notasLocal.filter((nota) =>
+    {
+        const tituloEnMinuscula = nota.titulo.toLowerCase();
+        return tituloEnMinuscula.includes(termino);
+    })
+    notas = notasFiltradas;
+    mostrarNotas();
+    const alerta = document.getElementById('alertaBusqueda');
+    if (notasFiltradas.length === 0) {
+        alerta.classList.remove('d-none');
+    } else{
+        alerta.classList.add('d-none');
+    }
+}
+
+//funcion para limpiar el historial de busqueda. 
+const limpiarFiltro = () => {
+    notas = JSON.parse(localStorage.getItem('notas')) || [];
+    busquedaForm.reset();
+    mostrarNotas();
+    const alerta = document.getElementById('alertaBusqueda');
+    alerta.classList.add('d-none');
+}
+
+
+
+mostrarNotas();
+busquedaForm.onsubmit = submitBusqueda;
