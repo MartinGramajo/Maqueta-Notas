@@ -37,7 +37,7 @@ formularioNotas.onsubmit = function (event) {
     formularioNotas.reset()
 }
 
-
+//funcion para mostrar las notas en la pantalla. 
 function mostrarNotas() {
     const notasMap = notas.map(function (nota) {
         const fecha = new Date(nota.registro);
@@ -58,7 +58,13 @@ function mostrarNotas() {
 
 mostrarNotas();
 
+//Funcion para eliminar las nota
+
 function eliminarNota(id) {
+    const confirmar = confirm('Confirme para eliminar la nota seleccionada.');
+    if (!confirmar) {
+        return;
+    }
     const notasFiltradas = notas.filter((nota) => nota.id !== id);
     const json = JSON.stringify(notasFiltradas); 
     localStorage.setItem('notas', json); 
@@ -66,6 +72,7 @@ function eliminarNota(id) {
     mostrarNotas();
     };
 
+//Funcion para mostrar el detalle de cada nota (id y fecha)
 function mostrarDetalle(id) {
     const notaEncontrada = notas.find((nota) => nota.id === id);
     const NotaDetalle = document.getElementById('detalleNota');
@@ -77,6 +84,7 @@ function mostrarDetalle(id) {
     NotaDetalle.innerHTML = detallesNota;
 }
 
+// funcion para editar la nota
 function cargarModalEditar(id) {
     const notaEncontrada = notas.find((nota) => nota.id === id);
     editarTituloNota.value = notaEncontrada.titulo;
@@ -129,6 +137,7 @@ const submitBusqueda = (e) => {
     }
 }
 
+//funcion para limpiar el historial de busqueda. 
 const limpiarFiltro = () => {
     notas = JSON.parse(localStorage.getItem('notas')) || [];
     busquedaForm.reset();
