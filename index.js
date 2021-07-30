@@ -45,7 +45,7 @@ function mostrarNotas() {
     const notasMap = notas.map(function (nota) {
         const fecha = new Date(nota.registro);
         return `
-        <div class="fondoNota col-md-6 border-1 p-4 mb-2 my-3 bg-dark text-dark m-auto text-center">
+        <div class="fondoNota col-lg-6 border-1 p-4 mb-2 my-3 bg-dark text-dark m-auto text-center">
             <img class="pincho m-auto" src="./img/pincho.png" alt="">
             <h3 class:"p-4"><i class="fas fa-edit m-1"></i>Titulo: ${nota.titulo}</h3>
             <p class="bodyNota text-break px-2 overflow-auto"> ${nota.comentario}</p>
