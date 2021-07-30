@@ -22,11 +22,11 @@
 </head>
 
 <body>
-    <!--Navbar-->
-        <section class="sticky-nav">
-            <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <section class="sticky-nav">
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><i class="fas fa-pen-square m-1"></i>Tus Notas</a></a>
+
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><i class="fas fa-pen-square m-1"></i>Tus Notas</a>
                     <form id="formBusqueda" class="d-flex form-inline">
                         <input id="busqueda" class="form-control me-2" type="search" placeholder="Buscar Nota" aria-label="Search">
                         <button class="btn btn-outline-success me-2" type="submit"><i class="fas fa-search"></i></button>
@@ -34,9 +34,10 @@
                         <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#notaModal"> 
                         <i class="fas fa-plus"></i></button>
                     </form>
-                </div>
-            </nav>
-        </section>
+                </div> 
+            
+        </nav>
+    </section>
 
 
         <!-- formulario Modal  -->
@@ -82,7 +83,7 @@
             <div class="row d-flex flex-wrap justify-content-between" id="cardNotas">
 
             </div>
-            <div id="alertaBusqueda" class="fondoNota col-md-4 border-1 p-4 mb-2 my-3 bg-dark text-dark m-auto text-center d-none">
+            <div id="alertaBusqueda" class="fondoNota col-md-4 border-1 p-4 mb-2 my-4 bg-dark text-dark m-auto text-center d-none">
                 <img class="pincho m-auto" src="./img/pincho.png" alt="">
                 <h3><i class=" bodyNota fas fa-ban m-1">No hay resultados para la búsqueda</i></h3>
             </div>
