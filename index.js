@@ -130,7 +130,8 @@ const submitBusqueda = (e) => {
     const notasFiltradas = notasLocal.filter((nota) =>
     {
         const tituloEnMinuscula = nota.titulo.toLowerCase();
-        return tituloEnMinuscula.includes(termino);
+        const contenidoEnMinuscula = nota.comentario.toLowerCase();
+        return tituloEnMinuscula.includes(termino) || contenidoEnMinuscula.includes(termino); 
     })
     notas = notasFiltradas;
     mostrarNotas();
