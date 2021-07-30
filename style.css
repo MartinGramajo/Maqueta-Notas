@@ -16,11 +16,20 @@ body {
 .fondoNota{
     position: sticky;
     background-image: url(https://w7.pngwing.com/pngs/365/5/png-transparent-yellow-note-paper-post-it-note-sticky-notes-paper-icon-sticky-note-chemical-element-angle-text.png);
-    background-position: center;
+    background-position: right  -58px bottom -70px;
     background-size: auto;
     border-radius: 10px;
     width: 500px;
     height: 400px;
+}
+
+/**/
+.bodyNota{
+    height: 130px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /*Css aplicado al pincho de notas*/
