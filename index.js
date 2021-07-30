@@ -56,7 +56,6 @@ function mostrarNotas() {
         </div>
         `;
     } );
-    console.log("file: index.js ~ line 58 ~ notasMap ~ notasMap", notasMap)
     notasCard.innerHTML = notasMap.join('');
     if (notas.length !== 0) {
         alerta.classList.add('d-none');
