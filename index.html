@@ -30,7 +30,7 @@
                     <form id="formBusqueda" class="d-flex form-inline">
                         <input id="busqueda" class="form-control me-2" type="search" placeholder="Buscar Nota" aria-label="Search">
                         <button class="btn btn-outline-success me-2" type="submit"><i class="fas fa-search"></i></button>
-                        <button class="btn btn-outline-danger me-2" type="submit" onclick="limpiarFiltro()"><i class="fas fa-undo"></i></i></button>
+                        <button class="btn btn-outline-danger me-2" type="submit" onclick="limpiarFiltro()"><i class="fas fa-undo"></i></button>
                         <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#notaModal"> 
                         <i class="fas fa-plus"></i></button>
                     </form>
@@ -44,11 +44,11 @@
             <div class="modal fade" id="notaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
             <div class="modal-content">
-                <form class="bg-dark" id="formulario">
+                <form class="bg-dark" id="formulario" autocomplete="on">
                     <div class="row">
                         <div class="col p-4">
                             <h5 class="modal-title text-white text-center mb-2">Crea Tu Nota</h5>
-                            <label for="inputTitulo" class="form-label text-white">Titulo</label>
+                            <label for="inputTitulo"  class="form-label text-white">Titulo</label>
                             <input type="text" class="form-control fs-5 bg-secondary text-white" required id="inputTitulo" maxlength="60">
                         </div>
                     <div  class="modal-body p-4">
@@ -84,7 +84,7 @@
             <div class="row d-flex flex-wrap justify-content-between" id="cardNotas">
 
             </div>
-            <div id="alertaBusqueda" class="fondoNota col-md-4 border-1 p-4 mb-2 my-4 bg-dark text-dark m-auto text-center d-none">
+            <div id="alertaBusqueda" class="fondoNota col-md-4 border-1 p-4 mb-2 my-4 bg-dark text-dark m-auto text-center">
                 <img class="pincho m-auto" src="./img/pincho.png" alt="">
                 <h3><i class=" bodyNota fas fa-ban m-1">No hay resultados para la búsqueda</i></h3>
             </div>
