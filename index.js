@@ -66,10 +66,7 @@ mostrarNotas();
 //Funcion para eliminar las nota
 
 function eliminarNota(id) {
-    const confirmar = confirm('Confirme para eliminar la nota seleccionada.');
-    if (!confirmar) {
-        return;
-    }
+    vvvvvvvvvvvvvvvvv
     const notasLocal = JSON.parse(localStorage.getItem('notas')) || [];
     const notasFiltradas = notasLocal.filter((nota) => nota.id !== id);
     const json = JSON.stringify(notasFiltradas); 

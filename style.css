@@ -21,6 +21,7 @@ body {
     border-radius: 10px;
     max-width: 460px;
     min-height: 400px;
+    box-shadow: 7px 5px 6px rgba(0, 0, 0, 50);
 }
 
 /**/
@@ -30,6 +31,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 /*Css aplicado al pincho de notas*/
